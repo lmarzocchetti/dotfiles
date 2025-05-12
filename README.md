@@ -1,4 +1,8 @@
 # dotfiles
+
+![2025-05-12-131329_3840x1080_scrot](https://github.com/user-attachments/assets/c2076464-0ed8-46c6-af8c-4551446fa18f)
+
+
 My personal dotfiles, include:
 
 Window Manager:
