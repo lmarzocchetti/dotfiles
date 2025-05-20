@@ -1,7 +1,6 @@
 # dotfiles
 
-![2025-05-12-131329_3840x1080_scrot](https://github.com/user-attachments/assets/c2076464-0ed8-46c6-af8c-4551446fa18f)
-
+![2025-05-20-172721_3840x1080_scrot](https://github.com/user-attachments/assets/7ac67375-63d8-4aa6-9ad7-03b3d76b5a54)
 
 My personal dotfiles, include:
 
@@ -27,3 +26,8 @@ Text Editor:
 #### Text Editors
 - Emacs: put .emacs and .emacs-rc in $HOME
 - NeoVim: put the nvim folder in .conf
+
+#### Picom Settings
+You want to setup some picom settings i use (for other things check picom.conf (to insert in .config/)):
+- frame-opacity = 0.9
+- corner-radius = 10
