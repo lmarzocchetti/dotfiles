@@ -165,6 +165,13 @@
 ;; Add a hook to autostart OLS
 (add-hook 'odin-ts-mode-hook #'lsp-deferred) ;; If you're using the TS mode
 
+(add-to-list 'compilation-error-regexp-alist-alist
+             '(odin
+               "^\\([^()\t\n]+\\)(\\([0-9]+\\):\\([0-9]+\\)) \\(?:Error\\|Note\\|Warning\\):"
+               1 2 3))
+
+(add-to-list 'compilation-error-regexp-alist 'odin)
+
 ;; smex
 (rc/require 'smex)
 (global-set-key (kbd "M-x") 'smex)
