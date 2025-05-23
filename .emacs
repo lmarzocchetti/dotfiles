@@ -6,7 +6,7 @@
 (load-file "~/.emacs.rc/custom-functions.el")
 
 ;(add-to-list 'default-frame-alist `(font . "Iosevka-20"))
-(add-to-list 'default-frame-alist `(font . "Iosevka Nerd Font-16"))
+(add-to-list 'default-frame-alist `(font . "Iosevka Nerd Font-20"))
 
 ;(rc/require-theme 'gruber-darker)
 ;(rc/require-theme 'catppuccin)
@@ -26,6 +26,11 @@
 (electric-pair-mode 1)
 (setq ring-bell-function 'ignore)
 (font-lock-mode)
+
+(if (eq system-type 'darwin)
+  (progn
+    (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier 'super)))
 
 (use-package exec-path-from-shell
   :ensure t
@@ -68,6 +73,8 @@
 (use-package which-key
   :config
   (which-key-mode))
+
+(rc/require 'company)
 
 (rc/require 'multiple-cursors)
 
