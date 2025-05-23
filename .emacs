@@ -32,9 +32,6 @@
   :config
   (exec-path-from-shell-initialize))
 
-(setq treesit-language-source-alist
-      '((cmake "https://github.com/uyha/tree-sitter-cmake")))
-
 (setq c-default-style "linux"
       c-basic-offset 4)
 
@@ -74,6 +71,8 @@
 
 (rc/require 'multiple-cursors)
 
+(rc/require 'magit)
+
 (rc/require 'drag-stuff)
 (drag-stuff-global-mode)
 (drag-stuff-define-keys)
@@ -84,7 +83,8 @@
 (defvar treesit-language-source-alist
   '(
     (odin "https://github.com/tree-sitter-grammars/tree-sitter-odin")
-    ))
+    (cmake "https://github.com/uyha/tree-sitter-cmake")
+   ))
 
 ;; Common Lisp
 (rc/require 'sly)
