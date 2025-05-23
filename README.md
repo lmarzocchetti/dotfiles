@@ -10,7 +10,7 @@ Window Manager:
 - Slock: simple lock manager (need to create the systemd service for that, read Slock repo)
 
 Text Editor:    
-- Emacs: With some customization, including support for: C/C++, Zig, Common Lisp, Ocaml, Haskell.
+- Emacs: With some customization, including support for: C/C++, Zig, Common Lisp, Ocaml, Haskell, Odin.
 - NeoVim: Not my main editor but have support for: C/C++, python, Zig (optional you can enable rust uncommenting some lines in "nvim/lua/custom/configs/lspconfig.lua")
 
 ### Installation
