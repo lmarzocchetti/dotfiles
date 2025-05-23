@@ -81,6 +81,11 @@
 (rc/require 'winum)
 (winum-mode)
 
+(defvar treesit-language-source-alist
+  '(
+    (odin "https://github.com/tree-sitter-grammars/tree-sitter-odin")
+    ))
+
 ;; Common Lisp
 (rc/require 'sly)
 (setq inferior-list-program "/usr/bin/sbcl")
@@ -143,6 +148,23 @@
   :config
   (setq lsp-haskell-server-path "haskell-language-server-wrapper"))
 
+;; Odin
+(load-file "~/.emacs.rc/odin-ts-mode.el")
+(add-to-list 'auto-mode-alist '("\\.odin\\'" . odin-ts-mode))
+;; Set up OLS as the language server for Odin, ensuring lsp-mode is loaded first
+(with-eval-after-load 'lsp-mode
+  (setq-default lsp-auto-guess-root t) ;; Helps find the ols.json file with Projectile or project.el
+  (add-to-list 'lsp-language-id-configuration '(odin-ts-mode . "odin"))
+
+  (lsp-register-client
+   (make-lsp-client :new-connection (lsp-stdio-connection "~/.ols/ols") ;; Adjust the path here
+                    :major-modes '(odin-mode odin-ts-mode)
+                    :server-id 'ols
+                    :multi-root t))) ;; Ensures lsp-mode sends "workspaceFolders" to the server
+
+;; Add a hook to autostart OLS
+(add-hook 'odin-ts-mode-hook #'lsp-deferred) ;; If you're using the TS mode
+
 ;; smex
 (rc/require 'smex)
 (global-set-key (kbd "M-x") 'smex)
@@ -151,4 +173,4 @@
 (global-set-key (kbd "C-,") 'rc/duplicate-line)
 (global-set-key (kbd "C-c C-f") 'generate-clang-format-file)
 
-;; gruber-darker-theme which-key lsp-mode lsp-ui flycheck company-mode lsp-treemacs rust-mode dap-mode multiple-cursors smex winum kaolin-themes drag-stuff zig-mode
+;; gruber-darker-theme which-key lsp-mode lsp-ui flycheck company company-mode lsp-treemacs rust-mode dap-mode multiple-cursors smex winum kaolin-themes drag-stuff zig-mode
