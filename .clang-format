@@ -1,0 +1,11 @@
+BasedOnStyle: Microsoft
+IndentWidth: 4
+ColumnLimit: 120
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterStruct: false
+  AfterFunction: true
+  AfterUnion: false
+  BeforeElse: true 
+  BeforeWhile: false
+  AfterCaseLabel: false
