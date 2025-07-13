@@ -9,6 +9,7 @@ return {
             "clangd",
             "clang-format",
             "codelldb",
+            "zls",
         },
     },
 }
